@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 3.1 - Використання об'єкта Date</title>
+</head>
+<body>
+    <h2>Дні тижня з різним стилем</h2>
+    <script>
+        function weekDay(size, day, color) {
+            document.write(`<span style="font-size:${size}px; color:${color}">${day}</span><br>`);
+        }
+
+        let days = ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя"];
+        let sizes = [20, 22, 24, 26, 28, 30, 32];
+        let colors = ["red", "orange", "yellow", "green", "blue", "purple", "brown"];
+
+        for (let i = 0; i < days.length; i++) {
+            weekDay(sizes[i], days[i], colors[i]);
+        }
+    </script>
+    <br>
+    <a href="index.html">Повернутися на головну сторінку</a>
+</body>
+</html>

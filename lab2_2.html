@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 3.2 - Поточний час і до дня народження</title>
+</head>
+<body>
+    <h2>Поточна дата і час</h2>
+    <div id="currentDate"></div>
+
+    <h2>Час до вашого дня народження (11 квітня)</h2>
+    <div id="countdown"></div>
+
+    <script>
+        // Функція для відображення поточної дати і часу
+        function showCurrentDate() {
+            const now = new Date();
+            const days = ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"];
+            const day = days[now.getDay()];
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+
+            return `Сьогодні: ${day}, ${date}, ${time}`;
+        }
+
+        // Функція для обчислення часу до дня народження
+        function timeUntilBirthday() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            let birthday = new Date(currentYear, 3, 11); // 11 квітня (місяці від 0: 3 = квітень)
+
+            if (now > birthday) {
+                birthday.setFullYear(currentYear + 1);
+            }
+
+            const timeDiff = birthday - now;
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            return `До мого дня народження залишилось: ${days} днів, ${hours} годин, ${minutes} хвилин, ${seconds} секунд.`;
+        }
+
+        // Відображення початкових значень
+        document.getElementById("currentDate").innerText = showCurrentDate();
+        document.getElementById("countdown").innerText = timeUntilBirthday();
+        
+        // Оновлення кожну секунду
+        setInterval(() => {
+            document.getElementById("currentDate").innerText = showCurrentDate();
+            document.getElementById("countdown").innerText = timeUntilBirthday();
+        }, 1000);
+    </script>
+
+    <br>
+    <a href="index.html">Повернутися на головну сторінку</a>
+</body>
+</html>

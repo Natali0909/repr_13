@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 3.6 - Функція як аргумент</title>
+</head>
+<body>
+    <h2>Функція як аргумент</h2>
+    <script>
+        function applyOperation(num, operation) {
+            return operation(num);
+        }
+
+        function double(n) {
+            return n * 2;
+        }
+
+        document.write("Подвоєння числа 7: " + applyOperation(7, double));
+    </script>
+    <br>
+    <a href="index.html">Повернутися на головну сторінку</a>
+</body>
+</html>

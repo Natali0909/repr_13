@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 3.8 - Використання масиву arguments</title>
+</head>
+<body>
+    <h2>Сума чисел із масиву arguments</h2>
+    <script>
+        function sum() {
+            let total = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                total += arguments[i];
+            }
+            return total;
+        }
+
+        document.write("Сума чисел 1, 2, 3, 4, 5: " + sum(1, 2, 3, 4, 5));
+    </script>
+    <br>
+    <a href="index.html">Повернутися на головну сторінку</a>
+</body>
+</html>
